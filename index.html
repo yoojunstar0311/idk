@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Testing</title>
+    <script src="https://kit.fontawesome.com/0f66cb073c.js" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marck+Script&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Noto+Sans+KR:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="playertest-style.css">
+</head>
+<body style="background-color: black;">
+<!--Search bar-->
+<div id='Searchbox' class="glass SR">
+    <p id="resultTextTop" class="SR">search result.</p>
+</div>
+
+<noscript>
+    <p style="z-index: 3; position: fixed; margin-left: -200px; margin-top: -150px; width: 500px">i feel like Javascript in your browser is off. would you turn that on? our timer won't work without javascript</p>
+    <div id="fullCover"></div>
+</noscript>
+
+<!-- Alert Box-->
+ <div id="Alertbox" class="glass">
+    <i id='excicon' class="fa-solid fa-circle-exclamation fa-2xl" style="color: hwb(0 100% 0%); margin-top: 28px; margin-left: 5px;"></i>
+    <i id='checkicon' class="fa-solid fa-check fa-2xl" style="color: hwb(0 100% 0%); margin-top: 28px; margin-left: 5px;"></i>
+    <p id="alertTopic">Song Not Found</p>
+    <p id="alertText">song is not found idk why cus' this is fkn test text lmaooo!!</p>
+</div>
+
+<div id="blackBg" class="msg"></div>
+<!-- Message box-->
+ <div id="msgbar" class="glass msg">
+    <p id="msgTopic" class="msg"></p>
+    <p id="msgText" class="msg" style="position: fixed;"></p>
+    <div style="height: 55px"></div>
+    <button id="accButton" class="buttonDesign msg">okay</button>
+    <button id="decButton" class="buttonDesign msg">cancel</button>
+</div>
+
+<div id="chatbar" class="glass">
+    <h3 style="font-weight: 700; margin-left: 20px;">How was your focus?</h3>
+    <h5 style="font-weight: 300; margin-left: 20px; margin-top: -20px; font-size: 13px;">awesome job of the focus season. if you want to analyze, write down your feeling. this will be sent to local AI analyze.</h5>
+    <h5 id="grr" style="display: none; font-weight: 300; margin-left: 20px; margin-top: -10px; font-size: 11px; opacity: 0.8; color: rgb(176, 253, 176)">this won't be saved or used on any public server or training, we respect your privacy.</h5>
+    <i class="fa-solid fa-xmark fa-xl" id="chatbarClose" style="position: fixed; margin-top: -75px; margin-left: 470px;"></i>
+
+    <button id="writefocus" class="glass" style="width: 80px; height: 28px; backdrop-filter: none; border-radius: 5px; margin-left: 20px; position: fixed; margin-top: -8px; color: white; opacity: 0.9; font-size: 14px;">write</button>
+    <textarea id="focss" class="glass"></textarea>
+    <button id="donebtn" class="glass" style="width: 80px; height: 28px; backdrop-filter: none; border-radius: 5px; margin-left: 400px; position: fixed; margin-top: 20px; color: white; opacity: 0.9; font-size: 14px; display: none;">done</button>
+</div>
+
+
+<!-- 
+Main Player!!
+-->
+<div id="mainPlayer">
+<div id="bgCover"></div>
+<p id="playingonstuff">NOW PLAYING ON</p>
+<p class="hoverd" id="eightdstuff">music player by yoojun.</p>
+<div id="albumCover"></div>
+<p class="hoverd" id="songTitle"></p>
+<p class="hoverd" id="artistInfo"></p>
+<p id="buildinfo"></p>
+<p id="albumInfo" class="boldy hoverd"></p>
+<p id="albumArtistInfo"></p>
+<p id="audioInfo"><p>
+<div id="smallAlbumCover"></div>
+<div id="someboxui"></div>
+
+<select id="featuringSetting">
+    <option value="new">new</option>
+    <option value="legacy">legacy</option>
+    <option value="artist">artist</option>
+    <option value="hidden">hidden</option>
+</select>
+
+
+
+<div id="blurEffect" class="msg"></div>
+<div id="settingbox"></div>
+
+<div id="playerbox" class="glass">
+    <div id="smallAlbumCoverPlayerVariation"></div>
+    <p id="PBtitle"></p>
+    <p id="PBartist"></p>
+    <div id="bar1"></div>
+</div>
+
+<button id="testbt">test</button>
+
+</div>
+
+<!--Background Player-->
+<div id="pasd">
+<div id="wallPaper"></div>
+<video id="wallPaperVideo" autoplay muted loop>
+    <source id="videoSourse" type="video/mp4"></video>
+</video>
+
+<div id="timerUI" class="glass rem">
+<p id="timerUIText">Force End</p>
+</div>
+
+<!--tab switcher-->
+<div id="tabSwitchBox" class="glass rem">
+    <i class="fa-solid fa-cloud-moon fa-xs" style="z-index:2; position: fixed; margin-top: 17px; margin-left: 8px;"></i>
+    <p style="z-index:2; margin-top: 11px; margin-left: 25px; font-weight: 500; font-size: 11.5px; position: fixed;">Ambient</p>
+    <div id='tabShower'></div>
+    <div id='hitbox-ambient'></div>
+    <div id='hitbox-focus'></div>
+        <i class="fa-solid fa-book fa-xs" style="z-index:2; position: fixed; margin-top: 17px; margin-left: 85px;"></i>
+    <p style="z-index:2; margin-top: 11px; margin-left: 100px; font-weight: 500; font-size: 11.5px; position: fixed;">Focus</p>
+</div>
+
+<div id="widgetPack" style="display: none;">
+    <div id="weatherWidget" class="glass widget">
+        <i id="weatherIcon"></i>
+        <p id="weatherInfo"></p>
+        <p id="weatherLocInfo" class="widgetInfo">Loading Weather..</p>
+    </div>
+
+    <div id="clockWidget" class="glass widget">
+        <h1 id="clockWidgetDisplay" style="margin-left: 13.5px; margin-top: 15px; position: fixed;"></h1>
+        <h5 id="clockWidgetDay" class="widgetInfo" style="margin-right: 15px;"></h5>
+    </div>
+
+    <div id="timerWidget" class="glass widget">
+        <h1 id="timerWidgetDisplay" style="margin-left: 7px; margin-top: 15px; position: fixed; text-align: center;">00:00</h1>
+        <h5 class="widgetInfo" style="margin-right: 15px;">Stopwatch</h5>
+        <button id="clockWidgetbutton" class="glass"><span id="timerWidgetButtonText">start</span></button>
+    </div>
+</div>
+
+<div id="widgetBar" class="glass" style="display: none;">
+    <h2 style="margin-left: 10px; margin-top: 8px; position: fixed;">widgets</h2>
+
+    <div class="widgetItem glass" style="position: fixed;">
+        <i class="fa-solid fa-cloud-rain" style="position: fixed; margin-top: 5.8px; margin-left: 5px;"></i>
+        <p style="margin-top: 3px; margin-left: 25px; font-weight: bold;">weather</p>
+        <p style="font-size: 8px; margin-top: -15px; margin-left: 3px; opacity: 0.7;">gets weather from weatherAPI based on your location</p>
+    </div>
+
+    <div class="widgetItem glass" style="position: fixed; margin-left: 170px;">
+        <i class="fa-solid fa-clock" style="position: fixed; margin-top: 5.8px; margin-left: 5px;"></i>
+        <p style="margin-top: 3px; margin-left: 25px; font-weight: bold;">clock</p>
+        <p style="font-size: 8px; margin-top: -15px; margin-left: 3px; opacity: 0.7;">displays current time and today's date, based on your system time</p>
+    </div>
+
+    <div class="widgetItem glass" style="position: fixed; margin-left: 340px;">
+        <i class="fa-solid fa-stopwatch" style="position: fixed; margin-top: 5.8px; margin-left: 5px;"></i>
+        <p style="margin-top: 3px; margin-left: 25px; font-weight: bold;">stopwatch</p>
+        <p style="font-size: 8px; margin-top: -15px; margin-left: 3px; opacity: 0.7;">interactable stopwatch. this won't be counted on total focus time and analyze.</p>
+    </div>
+</div>
+
+<div id="timerButton" class="glass rem">
+<p id="timerButtonText">Start</p>
+</div>
+
+<div id="resetButton" class="glass rem">
+<p id="resetButtonText">Reset Timer</p>
+</div>
+
+<h1 id="logoStuff" class="rem">yoojun clock.</h1>
+<h3 id="logothing" class="rem">powered by</h3>
+<i class="fa-regular fa-clock rem" id="loogo"></i>
+
+<p id="subclock"></p>
+<p id="clock"></p>
+
+<p id="someWords"></p> <!-- have a wonderful day!-->
+<p id="subject"></p>
+
+<div id="playerboxBg" class="glass pbb">
+    <div id="albCoverBg" class="pbb"></div>
+    <p id="PBtitleBg" class="pbb"></p>
+    <p id="PBartistBg" class="pbb"></p>
+    <div id="bar1Bg" class="pbb"></div>
+</div>
+
+<div id="fscbox" class="glass">
+    <p id="fscboxLabel">Fullscreen</p>
+</div>
+
+<div id="circleThing"></div>
+<div id="circleProgress"></div>
+
+<div id="settingIconBox" class="glass rem">
+    <i class="fa-solid fa-gear fa-2xl" id="settingIcon"></i>
+</div>
+
+<div id="todolistIcon" class="glass rem">
+    <p id="td">To-do list</p>
+    <p id="todo"></p>
+    <i id="todoIcon" class="fa-solid fa-clipboard-list fa-xl"></i>
+</div>
+
+<div id="todobox" class="glass">
+    <i style="margin-top: 30px; margin-left: 15px;" class="fa-solid fa-clipboard-list fa-2xl"></i>
+    <h1 style="position: fixed; margin-top: -27px; margin-left: 47px; font-size: 28px; font-weight: 600;">to-do list <spen style="font-style: italic; font-size: 11px; color: rgb(236, 230, 195)">beta</spen></h1>
+    <h5 style="margin-left: 13px; margin-top: 8px; font-weight: normal; font-size: 11px; opacity: 0.9; font-style: italic;">welcome to to-do list, a place to help you doing something <spen style="font-weight: bold;">sequencely</spen></h5>
+    <i id="todoClose" class="fa-solid fa-xmark fa-2xl"></i>
+
+    <button id="Addnewbutton" class="glass">add new</button>
+    <button id="resetTodo" class="glass">reset list</button>
+
+</div>
+
+<div id="analyzeIcon" class="glass rem">
+    <p id="an">focus time</p>
+    <p id="anal">analyze</p>
+    <i id="analIcon" class="fa-solid fa-chart-simple fa-xl"></i>
+</div>
+
+ <div id="tabbarBox" class="glass rem">
+    <i class="fa-solid fa-clock fa-xl"></i>
+    <i class="fa-solid fa-stopwatch fa-xl"></i>
+    <i class="fa-solid fa-hourglass-end fa-xl"></i>
+</div>
+
+<div id="goalIcon" class="glass rem">
+    <p id="gText">Today's Goal (39.2%)</p>
+    <div id="progressBar"></div>
+    <div id="progressBar-charged"></div>
+    <i id="goalhidder" style="visibility: hidden; position: fixed; right: 15px; top: 20px; opacity: 0.7; padding: 10px;" class="fa-solid fa-xmark fa-xl"></i>
+
+    
+    <div id="goal-items" style="display: none">
+        <h3 style="margin-left: 12px; margin-top: 10px; position: fixed; opacity: 0.85; font-size: 23px;">today's goal.</h3>
+        <p id="Goalprogress" style="position: fixed; margin-top: 50px; margin-left: 245px; opacity: 0.8;">71%</p>
+        <div id="big-progressBar"></div>
+        <div id="big-progressBar-charged"></div>
+        <div style="position: fixed; width: 120px; height: 50px; background-color: rgba(0, 0, 0, 0.315); border-radius: 5px; margin-top: 105px; margin-left: 20px">
+            <input id="goalHour" type="number" min="0" value="0" style="position: fixed; width:40px; background-color: rgba(0, 0, 0, 0); margin-top: 13px; margin-left: 5px; font-size: 17px;">
+            <label style="margin-top: 12px; margin-left: 60px; margin-top: 15px; position: fixed; opacity: 0.65;">hours</label>
+        </div>
+        
+        <div style="width: 120px; height: 50px; background-color: rgba(0, 0, 0, 0.315); border-radius: 5px; margin-top: 105px; margin-left: 160px;">
+            <input id="goalMinute" type="number" min="0" value="0" style="position: fixed; width:40px; background-color: rgba(0, 0, 0, 0); margin-top: 13px; margin-left: 5px; font-size: 17px;">
+            <label style="margin-top: 12px; margin-left: 50px; margin-top: 15px; position: fixed; opacity: 0.65;">minutes</label>
+        </div>
+    </div>
+</div>
+
+<div id="br"></div>
+<div id="analyzeBox" class="glass">
+
+    <i class="fa-solid fa-chart-simple fa-2xl" id="anlIcon"></i>
+    <p id="settingTitle">analyze</p>
+    <!-- <h5 style="margin-left: 12.5px; margin-top: -32.5px; font-weight: normal; opacity: 0.7; font-size: 9.5px;">beta feature !! chart credit goes to chart.js</h5> -->
+    <i class="fa-solid fa-xmark fa-2xl" id="izz"></i>
+    <canvas id="myChart"></canvas>
+</div>
+
+<div id="soundBox" class="glass rem" title="sounds">
+    <i class="fa-solid fa-headphones fa-2xl" id="soundIcon"></i>
+</div>
+
+<div id="widgetIcon" class="glass rem" title="widget">
+    <i class="fa-solid fa-file fa-xl" id="widgetIconIcon"></i>
+</div>
+
+
+<audio id='rainySound' src="rainSound.mp3" loop></audio>
+<div id="soundBar" class="glass rem">
+    <i class="fa-solid fa-headphones fa-2xl" id="smthicon"></i>
+    <h2 id="soundbarText">sounds</h2>
+    <h5 style="margin-left: 145px; margin-top: 22px; font-size: 10.5px; font-weight:normal; font-style: italic;">beta btw</h5>
+    <div id="rainSound" class="glass">
+        <i id='rainIcon' class="fa-solid fa-cloud-moon-rain fa-xl" style="position: fixed; margin-top: 22px; margin-left: 10px; transform: scale(1.1); opacity: 0.8;"></i>
+        <i id='rainPause' class="fa-solid fa-pause fa-2xl" style="margin-top: 22px; margin-left: 13px; transform: scale(0.9); opacity: 0.9; display: none;"></i>
+    </div>    
+</div>
+
+<!--Now entering: settings!! :D-->
+<div id="setting-mix">
+<div id="blurryEffect"></div>
+
+<div id="settingBox" class="glass">
+    <div id="lineStuff"></div>
+
+    <i class="fa-solid fa-gear fa-2xl" id="settingIconside"></i>
+    <p id="settingTitle">Settings</p>
+    <i class="fa-solid fa-xmark fa-2xl" id="settingClose"></i>
+
+    <div id="SettingTab">
+        <div id="tab-clock">
+            <p class="setTitle">Clock</p>
+
+            <p class="settingTitle">Focusing Time</p>
+            <div class="setting-row">
+                <input id="focusing-min" type="number" min="0" value="25">
+                <p>Minutes</p>
+                <input id="focusing-sec" type="number" min="0" max="59" value="0">
+                <p>Seconds</p>
+            </div>
+            
+            <p class="settingTitle">Break Time</p>
+            <div class="setting-row">
+                <input id="break-min" type="number" min="0" value="5">
+                <p>Minutes</p>
+                <input id="break-sec" type="number" min="0" max="59" value="0">
+                <p>Seconds</p>
+            </div>
+        
+            <p class="settingTitle">Clock Style</p>
+            <div class="setting-row">
+                <p>Clock Font </p>
+                <select id="font-choice">
+                    <option value="Inter">Inter</option>
+                    <option value="Merriweather" style="font-family: Merriweather;">serif</option>
+                    <option value="Arial" style="font-family: Arial;">Arial</option>
+                </select>
+                <p>Bold</p> 
+                <input id='isfontBold' type="checkbox" checked>
+                <p> Color</p>
+                <input type="color" value='#ffffff' id='colorValue'>
+                <p id="colorlabel">#ffffff</p>
+            </div>
+        <p class="settingTitle">Text Label</p>
+        <div class="setting-row">
+            <p>Label</p>
+            <input id="labelInput" style="width:150px; font-size: 13px;">
+        </div>
+
+            <p class="settingTitle", style="font-size: 21px;">Enable Focused UI</p>
+            <input type="checkbox" id="focusedui" checked>
+            <p class="desc">*hides some buttons after set time of mouse inactivity on timer</p>
+            <div class="setting-row">
+                <p id="js-a">after</p>
+                <input id="inactiveTime" type="number" min="0" max="100" value="2">  
+                <p id="js-b">seconds of inactivity</p>      
+            </div>
+            <br>
+            <div class="setting-row" style="margin-top: -35px;">
+                <p id="alsomusictext">hide music</p>
+                <input id="alsomusic" style='margin-left: -25px;' type="checkbox">
+            </div>
+        </div> <!--tab:clock closed here-->
+        
+        <div id="tab-wallpaper">
+            <p class="setTitle">Wallpaper</p>
+            <p style="margin-top: -35px; font-size: 12px; margin-left: 3px; opacity: 0.8;">if it doesn't automatically apply, you might need to <span style="font-weight: bold;">refresh</span> to apply</p>
+            
+            <p class="settingTitle">upload image</p>
+            <div class="setting-row">
+                <p style="margin-top: 5px;">uses <span style="font-weight: bold">image</span> as wallpaper; for example, .png, .jpg, .jpeg, .gif</p>
+            </div>
+            <br>
+            <div class="setting-row">
+                <p>upload image: </p>
+                <button id="imageUploader">upload image</button>
+            </div>
+
+            <div class="setting-row">
+                <input id="fileUploader-image" type="file" hidden accept=".png,.jpg,.jpeg,.gif">
+                <p>or, paste image link: </p>
+                <input id='imgurl' style="width: 250px; font-size: 11px;" placeholder="example: https://example.com/image123">
+                <button id="imgurl-upload">upload</button>
+            </div>
+
+            <p class="settingTitle">upload video</p>
+            <div class="setting-row">
+                <p style="margin-top: 5px;">loops your .mp4, .webm video file as wallpaper. <span style="color: rgb(210, 250, 194); font-size: 11px;">Recommended For Lively Wallpaper users!</span></p>
+            </div>
+            <div class="setting-row">
+                <input id="fileUploader-video" accept=".mp4,.webm" type="file" hidden>
+                <p>upload video: </p>
+                <button id="videoUploader">upload video</button>
+            </div>
+
+            <p class="settingTitle">wallpaper style</p>
+            <div class="setting-row">
+                <p style="margin-top: 5px;">brightness</p>
+                <input id="brsetText" type="number" style="width: 40px; height: 20px; margin-top: -5.5px;">
+                <label style="margin-bottom: 5.5px;">%</label>
+                <input id="brsetSlider" type="range" min="0" max="100" step="1" style="width: 135px; margin-bottom: 8px;">
+            </div>
+
+            <div class="setting-row">
+                <p>auto low brightness on focused ui</p>
+                <input id="scrr" type="checkbox" style="margin-left: -25px;">
+            </div>
+
+            <div class="setting-row">
+                <p style="font-size: 12px; opacity: 0.5; margin-top: 16px;">*70% brightness is recommended (default)</p>
+            </div>
+
+
+
+        </div> <!--tab:wallpaper closed here-->
+
+        <div id="tab-credit">
+            <p class="setTitle">Credit</p>
+            
+            <p class="settingTitle" style="font-size: 30px;">made by yoojun 🌆</p>
+            <div class="setting-row">
+                <label id="somelabel"></label>
+            </div>
+            <div style="height: 150px;"></div>
+            <p style="font-weight: bold; font-size: 20px;"> ✨ site inspired by <a href="https://flocus.com/" target="_blank">flocus</a>
+
+            <div style="height: 30px;"></div>
+            <p style="margin-top: -12px;">🖊️ fonts are from <a href="https://fonts.google.com/" target="_blank">google fonts</a></p>
+            <p style="margin-top: -12px;">🔦 some icons are from <a href="https://fontawesome.com/" target="_blank">font awesome</a> (or just emoji) </p>
+
+            <p>🌇 <span style="font-weight: bold;">very</span> recommended to get lively wallpaper videos on <a href="https://motionbgs.com/" target="_blank">motionbgs</a></p>
+            <p style="margin-top: -13px;">or <a href="https://moewalls.com/" target="_blank">moewalls</a> and apply it here as video, it's really cool though.</p>
+                
+            <div style="height: 30px;"></div>
+            <p>here's what i hear when i study, youtube links..</p>
+            <a href="https://www.youtube.com/watch?v=yLOM8R6lbzg" target="_blank">white noise</a>
+            <a href="https://www.youtube.com/watch?v=MVeeRCRw5kM" target="_blank">chill playlist</a>
+        </div> <!--tab:credit closed here-->
+
+    </div>
+
+    <div class="settingItem" id="stClock">
+        <p class="settingItemText">🕑clock</p>
+    </div>
+
+    <div class="settingItem" id="stWallpaper">
+        <p class="settingItemText">🌆 wallpaper</p>
+    </div>
+
+    <div class="settingItem" id="stCredit">
+        <p class="settingItemText">🛠️ credit</p>
+    </div>
+</div> <!--whole setting box closed here-->
+</div> 
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="playertest-script.js"></script>
+</body>
+</html>
+

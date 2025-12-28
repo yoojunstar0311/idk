@@ -1,0 +1,1491 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+:root{
+    --album: url("");
+}
+
+#bgCover{
+    background-image: var(--album);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+    transform: scale(1.3);
+    filter: blur(20px) brightness(0.65);
+}
+
+#songTitle{
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 15px;
+    white-space: nowrap;
+    text-align: right;
+    max-width: 95%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#artistInfo{
+    margin-top: -30px;
+    font-size: 18px;
+}
+
+.hoverd:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.boldy{
+    font-weight: bold;
+}
+
+#albumInfo{
+    position: fixed;
+    text-align: left;
+    width: 410px;
+    margin-left: -120px;
+    font-size: 17px;
+    margin-top: 659px;
+}
+
+#albumArtistInfo{
+    position: fixed;
+    font-size: 10px;
+    text-align: left;
+    margin-left: -80px;
+    width: 450px;
+    margin-top: 685px
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#playbox{
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 800px;
+    border-radius: 5px;
+}
+
+#playingonstuff{
+    letter-spacing: 3px;
+}
+
+#eightdstuff{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#fullCover{
+  position: fixed;      /* stays in place even on scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;         /* full viewport width */
+  height: 100vh;        /* full viewport height */
+  background-color: rgb(86, 96, 97); /* semi-transparent black */
+  z-index: 1;        /* on top of everything */
+}
+
+p {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+h2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body{
+  user-select: none;        /* Standard */
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+
+#albumCover{
+    background-image: var(--album);
+    border-radius: 10px;
+    width: 450px;
+    height: 450px;
+    background-size: cover;
+    box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.26);
+}
+
+#audioInfo{
+    font-size: 8px;
+    text-align: right;
+    margin-left: 340px;
+    width: 300px;
+    font-weight: 400;
+}
+
+#smallAlbumCover{
+    background-image: var(--album);
+    width: 38px; height: 38px;
+    margin-top: -80px;
+    margin-right: 590px;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+#someboxui{
+    background-color: rgb(255, 255, 255);
+    width: 3px;
+    height: 50px;
+    position: fixed;
+    margin-top: 659px;
+    margin-right: 652px;
+}
+
+#spacialtext{
+    font-style: italic;
+    font-size: 10px;
+}
+
+#spacialtitle{
+    font-size: 15px;
+}
+
+#buildinfo{
+    position: fixed;
+    left: 0%;
+    margin-left: 5px; 
+    top: -0.5%;
+
+    font-size: 9px;
+}
+
+/* glass effect */
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* player ui */
+#playerbox{
+    position: fixed;
+    margin-bottom: -790px;
+    width: 800px;
+    height: 60px;
+    z-index: -1;
+}
+
+#smallAlbumCoverPlayerVariation{
+    position: fixed;
+    background-image: var(--album);
+    width: 38px; height: 38px;
+    margin-top: 13px;
+    margin-left: 12px;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+#PBtitle{
+    position: fixed;
+    margin-left: 58px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+#PBartist{
+    position: fixed;
+    margin-left: 61px;
+    margin-top: 35px;
+    font-size: 12px;
+    color: rgb(230, 224, 224);
+}
+
+#buildinfo{
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.925);
+}
+
+#blurEffect {
+    position: fixed;
+    z-index: 5;
+    width: 120%; 
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.58);
+    backdrop-filter: blur(10px);
+}
+
+
+
+#bar1{
+    width: 600px;
+    height: 5.8px;
+    background-color: white;
+    position: fixed;
+    margin-top: 30px;
+    margin-left: 150px;
+    visibility: hidden;
+}
+
+/* msg bar ui */
+#msgbar{
+    position: fixed;
+    width: 500px;
+    height: 290px;
+    z-index: 10;
+    background-color: rgb(0, 0, 0);
+}
+
+.msg{
+    z-index: 10;
+    opacity:0;
+    transition: opacity 0.5s ease;
+    display:none;
+}
+
+#blackBg{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    width: 500%; height: 500%;
+    backdrop-filter: blur(3px);
+    display: none;
+}
+
+#msgTopic{
+    text-align: center;
+    margin-top: 7px;
+    font-weight: bold;
+    font-size: 32.5px;
+    
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+}
+
+#msgText{
+    text-align: center;
+    width: 450px;
+    margin-left: 20px;
+    font-size: 18px;
+    text-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+
+.buttonDesign {
+    width: 110px;
+    height: 35px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px black;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 17px;
+    background-color: rgb(231, 231, 231);
+    bottom: 300px;
+}
+
+.buttonDesign:hover{
+    cursor: pointer;
+    background-color: white;
+    
+}
+
+#accButton{
+    position: fixed;
+    bottom: 10px;
+    left: 120px;
+}
+
+#decButton{
+    position: fixed;
+    bottom: 10px;
+    left: 280px;
+}
+
+#testbt{
+    position: fixed;
+    top: 5px;
+    visibility: hidden;
+}
+
+#Alertbox{
+    position: fixed;
+    width: 800px;
+    height: 60px;
+    border-radius: 10px;
+    margin-bottom: 800px;
+    visibility: hidden;
+    z-index: 10;
+}
+
+/* Animation */
+#Alertbox.slide-bottom{
+    animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+#Alertbox.slide-top{
+    animation: slide-top 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-bottom {
+  0% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}
+
+#alertTopic{
+    margin-top: -22px;
+    margin-left: 45px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.350);
+}
+
+#alertText{
+    color: rgb(238, 234, 234);
+    margin-top: -23px;
+    margin-left: 45px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.398);
+}
+
+#Searchbox{
+    visibility: hidden;
+    width: 500px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#resultTextTop{
+    visibility: hidden;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    margin-left: 15px;
+}
+
+.Smth{
+    width: 490px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.151);
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.Smth:hover{
+    background-color: rgba(90, 89, 89, 0.151);
+    transform: scale(1.015);
+    
+}
+
+.smthCover{
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+.smthName{
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 5px;
+    width: 420px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: fixed;
+}
+
+.smthBy{
+    position: fixed;
+    margin-left: 52px;
+    margin-top: 26px;
+    font-size: 12px;
+    color:rgb(227, 228, 230)
+}
+
+.SR{
+    visibility: visible;
+}
+
+* {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+#mainPlayer{
+    display: contents;
+    display: none;
+}
+
+#pasd{
+    display: contents;
+}
+
+#bgPlayer{
+    display: contents;
+    margin: 0;
+    padding: 0;
+}
+
+#wallPaper{
+    display: none;
+    background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/10021.jpg');
+    width: 100%; 
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(1.02);
+    filter: blur(0px) brightness(0.7);
+    position: fixed;
+    z-index: -1;
+    transition: filter 2s ease;
+}
+
+#wallPaperVideo{
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    filter: blur(0px) brightness(0.7);
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    transition: filter 0.5s ease;
+}
+
+#clock{
+    font-size: 170px;
+    font-weight: bold;
+    position: fixed;
+}
+
+#subclock{
+    position: fixed;
+    margin-bottom: 180px;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+#someWords{
+    position: fixed;
+    font-size: 40px;
+    margin-bottom: 450px;
+    font-weight: 500;
+}
+
+
+/* player ui: Background Mode variation */
+#playerboxBg{
+    position: fixed;
+    margin-bottom: -220px;
+    width: 300px;
+    height: 60px;
+    margin-left: -10px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease;
+
+}
+
+a{
+    color: rgb(201, 247, 253);
+}
+
+#albCoverBg{
+    position: fixed;
+    background-image: var(--album);
+    width: 38px; height: 38px;
+    margin-top: 13px;
+    margin-left: 12px;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+#PBtitleBg {
+  position: fixed;
+  margin-left: 58px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 17px;
+  z-index: 5;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  width: 220px; 
+}
+
+#PBartistBg{
+    position: fixed;
+    margin-left: 61px;
+    margin-top: 35px;
+    font-size: 12px;
+    color: rgb(230, 224, 224);
+}
+
+#fscbox{
+    position: fixed;
+    width: 130px;
+    height: 40px;
+    bottom: 10px;
+    transition: transform 0.3s ease;
+    display: none;
+}
+
+#fscbox:hover{
+    transform: scale(1.07);
+    cursor: pointer;
+}
+
+#fscboxLabel{
+    position: fixed;
+    margin-top: 11px;
+    margin-left: 26.5px;
+}
+
+#timerUI{
+    position: fixed;
+    margin-bottom: 250px;
+    margin-right: -150px;
+    width: 100px;
+    height: 30px;
+    margin-left: -10px;
+    transition: transform 0.3s ease;
+}
+
+#timerUI:hover, #timerButton:hover, #resetButton:hover, #widgetIcon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgba(128, 187, 235, 0.1);
+}
+
+#playerboxBg:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: rgba(128, 187, 235, 0.05);
+}
+
+#timerUIText{
+    margin-left: 15px;
+    margin-top: 7px;
+    font-size: 15px;
+    width: 100px;
+}
+
+#timerButton{
+    position: fixed;
+    margin-bottom: 250px;
+    margin-right: 100px;
+    width: 100px;
+    height: 30px;
+    margin-left: -10px;
+    transition: transform 0.3s ease;
+}
+
+#timerButtonText{
+    margin-left: 28px;
+    margin-top: 5px;
+    font-size: 20px;
+    width: 50px;
+}
+
+#subject{
+    font-weight: bold;
+    font-size: 50px;
+    position: fixed;
+    margin-bottom: 400px;
+}
+
+#resetButton{
+    width: 200px;
+    height: 25px;
+    margin-top: -330px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    visibility: hidden;
+}
+
+#resetButtonText{
+    margin-top: 2px;
+    margin-left: 52px;
+}
+
+#circleThing{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.089);
+    z-index: -1;
+    position: fixed;
+    visibility: hidden;
+}
+
+#circleProgress{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.082);
+    z-index: -1;
+    position: fixed;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+/* =======
+Settings Design
+   =======
+*/
+@keyframes disappear{
+    0%{
+        filter: opacity(1);
+    }
+    100%{
+        filter: opacity(0);
+    }
+}
+
+@keyframes appear{
+    0%{
+        filter: opacity(0);
+    }
+    100%{
+        filter: opacity(1);
+    }
+}
+
+/* setting icon */
+#fullScreenBox{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.377);
+    top: 1vh;
+    right: 7.5vh;
+}
+
+#settingIconBox{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.377);
+    top: 1vh;
+    right: 1vh;
+}
+
+#soundBox{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.377);
+    bottom: 1vh;
+    right: 1vh;
+    transform: scale(0.9);
+}
+
+#rainSound{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+#soundBar{
+    position: fixed;
+    width: 350px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0.418);
+    right: 7.5vh;
+    bottom: 0;
+    transform: translateY(100%);
+    will-change: transform;
+    transition: transform 0.5s ease;
+}
+
+
+
+#smthicon{
+    position: fixed;
+    margin-top: 25px;
+    margin-left: 15px;
+    transform: scale(0.9);
+}
+
+#soundbarText{
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 55px;
+}
+#rainSound:hover, #soundBox:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: rgba(43, 58, 70, 0.5);
+}
+
+#settingIconBox:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgba(43, 58, 70, 0.5);
+}
+
+#settingIcon{
+    position: fixed;
+    transform: scale(0.9);
+    filter: opacity(0.8);
+
+    margin-top: 23px;
+    margin-left: 7px;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+#soundIcon{
+    position: fixed;
+    transform: scale(0.9);
+    filter: opacity(0.8);
+
+    margin-top: 23px;
+    margin-left: 7px;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+/* setting box */
+#blurryEffect{
+    position: fixed;
+    width: 300%; 
+    height: 300%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 2;    
+}
+
+#settingBox{
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.658);
+    z-index: 3;
+    transform: translateY(-30%);
+    transition: transform 0.5s ease;
+}
+
+#logoStuff{
+    top: 10px;
+    left: 5vh;
+    font-size: 25px;
+    position: fixed;
+    font-weight: 700;
+}
+
+#loogo{
+    top: 20px;
+    left: 1.5vh;
+    font-size: 25px;
+    position: fixed;
+    font-weight: 700;
+}
+
+#logothing{
+    top: 0px;
+    left: 5vh;
+    position: fixed;
+    font-weight: 390;
+    font-size: 13.5px;
+}
+#settingTitle{
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 45px;
+    margin-top: 12px;
+
+}
+
+#settingIconside{
+    position: fixed;
+    margin-top: 30px;
+    margin-left: 10px;
+    transform: scale(0.8);
+    opacity: 0.8;
+}
+
+#lineStuff{
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.274);
+    width: 1px;
+    height: 790px;
+    margin-left: 175px;
+    margin-top: 5px;
+
+}
+
+.settingItem{
+    background-color: rgba(128, 128, 128, 0.125);
+    border-radius: 2px;
+    width: 160px;
+    height: 30px;
+    margin-left: 7px;
+    margin-bottom: -5px;
+    transition: transform 0.3s ease;
+
+}
+
+.settingItem:hover{
+    transform: scale(1.05);
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.settingItemText{
+    margin-left: 10px;
+    font-size: 21px;
+}
+
+#settingClose{
+    position: fixed;
+    margin-left: 755px;
+    margin-top: -50px;
+    transition: transform 0.3s ease;
+}
+
+#settingClose:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+#stClock{
+    background-color: rgba(128, 128, 128, 0.35);
+}
+
+.setTitle{
+    font-weight: 500;
+    font-size: 35px;
+    margin-top: 15px;
+
+}
+
+.settingTitle{
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+
+
+input{
+    background-color: rgb(65, 64, 64);
+    border: 0;
+    border-radius: 3px;
+    width: 75px;
+    height: 22px;
+    color: white;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+select{
+    background-color: rgb(65, 64, 64);
+    border: 0;
+    border-radius: 3px;
+    width: 75px;
+    height: 22px;
+    color: white;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+}
+
+#SettingTab{
+    background-color: rgba(201, 247, 255, 0);
+    position: fixed;
+    margin-top: -77px;
+    width: 625px;
+    height: 800px;
+    margin-left: 190px;
+    z-index: -1;
+
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -25px;
+}
+
+#isfontBold{
+    margin-left: -3px;
+    width: 17px;
+}
+
+#colorlabel{
+    opacity: 0.3;
+}
+
+#focusedui{
+    position: fixed;
+    margin-top: -45px;
+    margin-left: 170px;
+}
+
+button{
+    font-family: "Inter", "Noto Sans KR", sans-serif;
+    background-color: rgba(255, 255, 255, 0.959);
+    border: none;
+    border-radius: 2px;
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s ease;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.08);
+}
+
+.desc{
+    color: rgb(189, 230, 209);
+    margin-top: -19px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#setting-mix{
+    display: contents;
+    position: fixed;
+    color: white;
+}
+
+#setting-mix > * {
+    display: none;
+}
+
+#todolistIcon{
+    width: 200px;
+    height: 45px;
+    top: 1vh;
+    right: 7.5vh;
+    position: fixed;
+    transition: transform 0.3s ease;
+}
+
+#td{
+    opacity: 0.8;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+
+#todo{
+    font-weight: 650;
+    font-size: 16px;
+    margin-top: -15px;
+    margin-left: 15px;
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#todoIcon {
+    position: absolute;
+    top: 22px;
+    right: 15px;
+    opacity: 0.8;
+}
+
+#todolistIcon:hover{
+    background-color: rgba(90, 89, 89, 0.151);
+    transform: scale(1.03);
+}
+
+#todobox{
+    position: fixed;
+    width: 500px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.3);
+    right: 1.5vh;
+    top: 7vh;
+    will-change: transform;
+    transition: transform 0.35s ease;
+    transform: translateX(120%);
+
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#todoClose{
+    position: fixed;
+    right: 17px;
+    top: 28px;
+    transition: transform 0.3s ease;
+}
+
+#todoClose:hover{
+    transform:  scale(1.15);
+}
+
+.todoItem{
+    width:450px;
+    height:40px;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.);
+    margin-bottom: 15px;
+    backdrop-filter: none;
+}
+
+#Addnewbutton{
+    width: 80px; height: 25px;
+    backdrop-filter: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    color:white;
+}
+
+#resetTodo{
+    width: 80px; height: 25px;
+    backdrop-filter: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-left: 287px;
+    color:white;
+}
+
+.auto-width {
+  display: inline-block;
+  width: auto;
+  min-width: 1ch;
+}
+
+.todonames{
+    background-color: rgba(0, 0, 0, 0);
+    width: 320px;
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 8px;
+    margin-left: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.todonames::placeholder{
+    font-size: 16px;
+    font-style: italic;
+}
+
+.iconEffect{
+    transition: transform 0.1s ease;
+}
+
+.iconEffect:hover{
+    cursor: pointer;
+    color: rgb(218, 241, 241);
+}
+
+#analyzeIcon{
+    width: 150px;
+    height: 45px;
+    top: 1vh;
+    right: calc(7.5vh + 215px);
+    position: fixed;
+    transition: transform 0.3s ease;
+}
+
+#analyzeIcon:hover{
+    background-color: rgba(90, 89, 89, 0.151);
+    transform: scale(1.03);
+}
+
+#an{
+    opacity: 0.8;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+#anal{
+    font-weight: 650;
+    font-size: 16px;
+    margin-top: -15px;
+    margin-left: 15px;
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#analIcon {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    opacity: 0.8;
+}
+
+#analyzeBox{
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    background-color: rgba(0, 0, 0, 0.459);
+    z-index: 3;
+    transform: translateY(-120%);
+    transition: all 0.5s ease;
+    border-radius: 10px;
+}
+#anlIcon{
+    position: fixed;
+    margin-top: 30px;
+    margin-left: 10px;
+    transform: scale(0.8);
+    opacity: 0.8;
+}
+
+#izz{
+    position: fixed;
+    margin-left: 755px;
+    margin-top: -50px;
+    transition: transform 0.3s ease;
+}
+
+#izz:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+#br{
+    position: fixed;
+    top: -200px;
+    right: -300px;
+    margin: 0;
+    width: 300%; 
+    height: 300%;
+    background-color: rgba(0, 0, 0, 0.267);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    display: none;
+}
+
+#chatbar{
+    position: fixed;
+    width: 500px;
+    height: 145px;
+
+    bottom: 10px;
+    left: 3vh;
+    transform: translateX(-120%);
+    transition: transform 0.75s ease, height 0.5s ease;
+}
+
+#chatbarClose{
+    transition: transform 0.2s ease;
+}
+
+#chatbarClose:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+#focss{
+    border-radius: 5px;
+    backdrop-filter: none;
+    margin-left: 20px;
+    
+    width: 450px;
+    height: 60px;
+
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+
+    display: none;
+}
+
+#testLogin, #testLogout{
+    display: none;
+}
+
+#tabbarBox{
+    position: fixed;
+    width: 150px;
+    height: 35px;
+    bottom: 1vh;
+    left: 1vh;
+
+    display: none;
+
+    border-radius: 12px;
+}
+
+.tabbarItem{
+    margin-top: 8px;
+    margin-left: 8px;
+
+    font-size: 18px;
+    font-weight: 650;
+}
+
+#tabbarBox i{
+    margin-top: 18px; 
+    margin-left: 17px; 
+    opacity: 0.8;
+    transition: transform 0.25s ease;
+}
+
+#tabbarBox i:hover{
+    transform: scale(1.1)
+}
+
+#goalIcon{
+    width: 150px;
+    height: 45px;
+    bottom: 1vh;
+    right: calc(7vh + 10px);
+    position: fixed;
+    transition: transform 0.3s ease, width 0.5s ease, height 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.39);
+}
+
+#progressBar{
+    position: fixed;
+    margin-left: 15px;
+    margin-top: 25px;
+    width: 110px;
+    height: 5px;
+    background-color: rgb(230, 225, 225);
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+#progressBar-charged{
+    position: fixed;
+    margin-left: 15px;
+    margin-top: 25px;
+    width: 30px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+#gText{
+    position: fixed;
+    opacity: 0.8;
+    font-weight: 500;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 15px;
+    transform: all 0.5s ease;
+}
+
+#big-progressBar{
+    position: fixed;
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-top: 70px;
+    width: 280px;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    opacity: 0.3;
+}
+
+#big-progressBar-charged{
+    position: fixed;
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-top: 70px;
+    width: 0px;
+    height: 10px;
+    background-color: rgb(181, 236, 240);
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+#tabSwitchBox{
+    position: fixed;
+    width: 150px;
+    height: 35px;
+    bottom: 1vh;
+    border-radius: 13px;
+    left: calc(1vh + 5px);
+    background-color: rgba(0, 0, 0, 0.11);
+}
+
+#tabShower{
+    width: 75px; 
+    margin-left: 2px;  
+    height: 25px;
+    border-radius: 10px;  
+    margin-top: 5px;
+    background-color: rgba(255, 246, 244, 0.15); 
+    position: fixed; 
+    transition: margin-left 0.35s ease;
+    z-index: 1;
+}
+
+#hitbox-focus{
+    width: 72px; 
+    margin-left: 77px;  
+    height: 35px;  
+    background-color: rgba(110, 255, 42, 0); 
+    position: fixed; 
+    z-index: 5;
+}
+
+#hitbox-ambient{
+    width: 72px; 
+    margin-left: 2px;  
+    height: 35px;  
+    background-color: rgba(110, 255, 42, 0); 
+    position: fixed; 
+    transition: margin-left 0.35s ease;
+    z-index: 5;
+}
+
+.widget {
+    width: 105px; 
+    height: 70px;
+    position: absolute;          /* ok to have here */
+    touch-action: none;          /* important for pointer/touch */
+    user-select: none;
+}
+
+#weatherInfo{
+    position: fixed;
+    font-weight: 700;
+    font-size: 35px;
+    margin-left: 45px;
+    margin-top: 15px;
+}
+
+#weatherIcon{
+    position: fixed;
+    margin-top: 35px;
+    margin-left: 9px;
+    color: rgb(240, 240, 240);
+}
+
+#widgetIcon{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.377);
+    bottom: 1vh;
+    right: 1vh;
+    transform: scale(0.9);
+}
+
+#widgetIconIcon{
+    position: fixed;
+    transform: scale(0.9);
+    filter: opacity(0.9);
+
+    margin-top: 23px;
+    margin-left: 13px;
+
+    transition: transform 0.5s ease-in-out;
+}
+
+.widgetInfo{
+    position: fixed; 
+    margin-top: 3px; 
+    font-size: 8px; 
+    opacity: 0.5; 
+    text-align: center;
+    width: 105px;
+}
+
+#clockWidgetbutton{
+    position: fixed;
+    margin-top: 52px;
+    margin-left: 36px;
+    width: 35px;
+    height: 12px;
+
+    border-radius: 2px;
+    background-color: rgba(41, 38, 38, 0.349);
+    z-index: 10;
+
+    font-size: 10px;
+}
+
+#timerWidgetButtonText{
+    position: fixed;
+    margin-top: -5.9px;
+    margin-left: -11px;
+    color: white;
+}
+
+#widgetBar{
+    position: fixed;
+    width: 550px;
+    height: 120px;
+    bottom: 1vh;
+    right: 70px;
+}
+
+.widgetItem{
+    width: 150px; height: 70px;
+    margin-top: 42px;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.699);
+}
